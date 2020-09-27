@@ -1,15 +1,17 @@
 <%- include('./header') %>
 
         <!-- profile page -->
-        <div id="profile-section">
-            <!-- first name -->
-            <p>first name: <span id="profile-first-name"></span></p>
-            
-            <!-- last name -->
-            <p>last name: <span id="profile-last-name"></span></p>
+        <% if (data) { %>
+            <div id="profile-section">
+                <!-- first name -->
+                <p>first name: <span id="profile-firstname"><%= data.firstname %></span></p>
+                
+                <!-- last name -->
+                <p>last name: <span id="profile-lastname"><%= data.lastname %></span></p>
 
-            <!-- email -->
-            <p>email: <span id="profile-email"></span></p>
+                <!-- email -->
+                <p>email: <span id="profile-email"><%= data.email %></span></p>
 
-        </div>
+            </div>
+        <% } %>
 <%- include('./footer') %>

@@ -1,15 +1,15 @@
         <%- include('./header') %>
         <!-- sign up -->
-        <div id="signup-form">
+        <div >
             <div class="container">
-                <form action="" class="">
+                <form id="signup-form" action="" class="">
                     <!-- firstname -->
                     <div class="row">
                         <div class="col-25">
                             <label for="firstname">First Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="firstname" name="firstname" placeholder="Your first name..">
+                            <input type="text" id="sfirstname" name="sfirstname" placeholder="Your first name.." required>
                         </div>
                     </div>
                     <!-- lastname -->
@@ -18,7 +18,7 @@
                             <label for="lastname">Last Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
+                            <input type="text" id="slastname" name="slastname" placeholder="Your last name.." required>
                         </div>
                     </div>
                     <!-- email -->
@@ -27,7 +27,7 @@
                             <label for="email">Email</label>
                         </div>
                         <div class="col-75">
-                            <input type="email" id="email" name="email" placeholder="Your email..">
+                            <input type="email" id="semail" name="semail" placeholder="Your email.." required>
                         </div>
                     </div>
                     <!-- password -->
@@ -36,14 +36,14 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="col-75">
-                            <input type="password" id="password" name="password" placeholder="Your password..">
+                            <input type="password" id="spassword" name="spassword" placeholder="Your password.." autocomplete="false"  required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
                         </div>
                         <div class="col-75">
-                            <input type="submit" id="password" name="password" value="Submit">
+                            <input type="submit" id="sbutton" name="sbutton" value="Submit">
                         </div>
                     </div>
                 </form>

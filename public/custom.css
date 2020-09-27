@@ -15,6 +15,15 @@ ul {
     list-style: none;
 }
 
+#err {
+    display: none;
+    text-align: center;
+    float: none;
+    color: red;
+    padding-left: .5em;
+    vertical-align: top;
+}
+
 h2,
 h3,
 a {
@@ -171,6 +180,7 @@ form {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
+
     .col-25,
     .col-75,
     input[type=submit] {
@@ -185,4 +195,3 @@ form {
     padding: 10px;
     text-align: center;
 }
-

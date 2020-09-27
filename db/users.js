@@ -14,19 +14,19 @@ client.connect()
 
 const Users = {
     create: params => {
-        const query = `INSERT INTO users(firstname, lastname, email, password) VALUES($1, $2, $3, $4)`
+        const query = `INSERT INTO app_users(firstname, lastname, email, password) VALUES($1, $2, $3, $4)`
         return client.query(query, params)
     },
     read: email => {
-        const query = `SELECT FROM users WHERE email = $1`
+        const query = `SELECT id, firstname, lastname, email, password FROM app_users WHERE email = $1`
         return client.query(query, [email])
     },
     update: params => {
-        const query = `UPDATE users set firstname = $2, lastname = $ WHERE email = $1`
+        const query = `UPDATE app_users set firstname = $2, lastname = $ WHERE email = $1`
         return client.query(query, params)
     },
     delete: email => {
-        const query = `DELETE FROM users WHERE email = $1`
+        const query = `DELETE FROM app_users WHERE email = $1`
         return client.query(query, [email])
     },
 

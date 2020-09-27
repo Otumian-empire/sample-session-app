@@ -1,41 +1,71 @@
 // code from netninja
 $(document).ready(function() {
 
-  $('#sign')
+    if (location.href == '/' && $.session.get('user')) {
+        let { firstname, lastname, email } = $.session.get('user')
 
-  $('form').on('submit', function() {
+        $('#profile-firstname').text(firstname)
+        $('#profile-lastname').text(lastname)
+        $('#profile-email').text(email)
+    }
 
-      var item = $('form input');
-      var todo = { item: item.val() };
 
-      $.ajax({
-          type: 'POST',
-          url: '/',
-          data: todo,
-          success: function(data) {
-              //do something with the data via front-end framework
-              $('form input').val('')
-              location.reload();
-          }
-      });
+    function err_body(error) {
+        console.log(error.responseJSON.message)
+        $("#err").css('display', 'block')
+        $("#err").text(error.responseJSON.message)
+    }
 
-      return false;
 
-  });
+    $('#signup-form').on('submit', function(event) {
+        event.preventDefault()
 
-  $('li').on('click', function() {
-    var item_id = $(this).attr('id')
+        const firstname = $('#sfirstname').val()
+        const lastname = $('#slastname').val()
+        const email = $('#semail').val()
+        const password = $('#spassword').val()
 
-    $.ajax({
-      type: 'DELETE',
-      url: '/',
-      data: { id: item_id },
-      success: function(data) {
-        //do something with the data via front-end framework
-        location.reload();
-      }
-  });
+        const data = { firstname, lastname, email, password }
 
-  });
+        $.ajax({
+            type: 'POST',
+            url: '/signup',
+            data: data,
+            success: function() {
+                $('form input').val('')
+                location.href = '/login'
+            },
+            error: error => err_body(error)
+        })
 
-});
+        return false;
+    })
+
+
+    $('#login-form').on('submit', function(event) {
+        event.preventDefault()
+
+        const email = $('#lemail').val()
+        const password = $('#lpassword').val()
+
+        const data = { email, password }
+
+        console.log(data)
+
+        $.ajax({
+            type: 'POST',
+            url: '/login',
+            data: data,
+            success: function() {
+                $('form input').val('')
+                location.href = '/'
+            },
+            error: error => err_body(error)
+        })
+
+        return false;
+    })
+
+
+
+})
