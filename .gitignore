@@ -1,0 +1,9 @@
+node_modules
+.env
+**/.sql
+**/.png
+**/.jpg
+**/.jpeg
+postman*
+
+
