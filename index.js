@@ -14,7 +14,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(session({
     secret:'secret-key',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    // store: sessionStore,
+    cookie: {
+        maxAge: 1 * 60 * 1000  // 3 minutes
+    }
 }))
 
 app.use('', router)
